@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
   StyledForm,
   FormLabel,
@@ -8,10 +9,11 @@ import {
 } from "./ContactForm.styled";
 
 class ContactForm extends Component {
-  constructor() {
-    super();
-    this.state = { name: "", number: "" };
-  }
+  state = { name: "", number: "" };
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
 
   handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
